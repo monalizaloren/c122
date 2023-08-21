@@ -13,41 +13,40 @@ def index():
     return render_template("index.html", entries=entries)
  
 @app.route('/predict-emotion', methods=["POST"])
-def predict_emotion():
+#Passo 1
     
     # Obtenha a entrada de texto da requisição POST
-    input_text = request.json.get("text")  
+    
+
     
     if not input_text:
         # Resposta a enviar se input_text não for definida
-        response = {
-                    "status": "error",
-                    "message": "Digite um texto para prever a emoção!"
-                  }
-        return jsonify(response)
-    else:  
-        predicted_emotion, predicted_emotion_img_url = predict(input_text)
+       
+     
+     
+     
         
         # Resposta a enviar se input_text for definida
-        response = {
-                    "status": "success",
-                    "data": {
-                            "predicted_emotion": predicted_emotion,
-                            "predicted_emotion_img_url": predicted_emotion_img_url
-                            }  
-                   }
+       
+
+
+
+     
 
         # Enviar resposta         
-        return jsonify(response)
+        
+
+     
 
 
 @app.route("/save-entry", methods=["POST"])
 def save_entry():
 
     # Obtenha a data, a emoção prevista e o texto digitado pelo usuário para salvar a entrada
-    date = request.json.get("date")           
-    emotion = request.json.get("emotion")
-    save_text = request.json.get("text")
+    
+
+
+ 
 
     save_text = save_text.replace("\n", " ")
 
